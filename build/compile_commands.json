@@ -1,0 +1,8 @@
+[
+{
+  "directory": "/home/kezorka/connect-four/build",
+  "command": "/usr/bin/c++   -g -o CMakeFiles/connect-four.dir/main.cpp.o -c /home/kezorka/connect-four/main.cpp",
+  "file": "/home/kezorka/connect-four/main.cpp",
+  "output": "CMakeFiles/connect-four.dir/main.cpp.o"
+}
+]

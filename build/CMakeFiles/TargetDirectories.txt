@@ -1,0 +1,3 @@
+/home/kezorka/connect-four/build/CMakeFiles/connect-four.dir
+/home/kezorka/connect-four/build/CMakeFiles/edit_cache.dir
+/home/kezorka/connect-four/build/CMakeFiles/rebuild_cache.dir
