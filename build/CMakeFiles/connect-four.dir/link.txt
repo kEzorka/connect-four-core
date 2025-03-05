@@ -1,1 +1,0 @@
-/usr/bin/c++ -g "CMakeFiles/connect-four.dir/main.cpp.o" -o connect-four 
