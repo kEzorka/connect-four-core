@@ -1,8 +1,5 @@
+#include "../include/connect-four.h"
 #include <iostream>
-#include "../lib/json.hpp"
-#include "../lib/httplib.h"
-
-using json = nlohmann::json;
 
 void handleMove(const httplib::Request& req, httplib::Response& res) {
     auto request_data = json::parse(req.body);
@@ -26,17 +23,17 @@ void handleMove(const httplib::Request& req, httplib::Response& res) {
     res.set_header("Access-Control-Allow-Headers", "Content-Type");
 }
 
-int main() {
-    httplib::Server svr;
-
-    svr.Post("/move", handleMove);
-
-    std::cout << "Сервер запущен на порту 8080..." << std::endl;
+ConnectFour::ConnectFour() {
     svr.Options("/move", [](const httplib::Request&, httplib::Response& res) {
         res.set_header("Access-Control-Allow-Origin", "*");
         res.set_header("Access-Control-Allow-Methods", "POST, GET, OPTIONS");
         res.set_header("Access-Control-Allow-Headers", "Content-Type");
         res.status = 204;
     });
+    
+    svr.Post("/move", handleMove);
+}
+
+void ConnectFour::start() {
     svr.listen("0.0.0.0", 8080);
 }

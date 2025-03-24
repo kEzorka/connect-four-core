@@ -7,9 +7,10 @@ set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -g")
 
 file(GLOB_RECURSE SOURCES
     "${CMAKE_SOURCE_DIR}/src/*.cpp"
-    "${CMAKE_SOURCE_DIR}/includes/*.h"
+    "${CMAKE_SOURCE_DIR}/include/*.h"
     "${CMAKE_SOURCE_DIR}/lib/*.h"
     "${CMAKE_SOURCE_DIR}/lib/*.hpp"
+    "${CMAKE_SOURCE_DIR}/main.cpp"
 )
 
 add_executable(connect-four-core ${SOURCES})
