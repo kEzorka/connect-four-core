@@ -6,14 +6,30 @@ void handleMove(const httplib::Request& req, httplib::Response& res) {
 
     std::string player = request_data["player"];
     int column = request_data["column"];
-    auto board = request_data["board"];
+    auto got_board = request_data["board"];
+
+    std::string turn = EMPTY;
+    if (player == "Yellow") {
+        turn = PLAYER_1;
+    } else {
+        turn = PLAYER_2;
+    }
+
+    Board board = got_board;
 
     int yellow_move = (column + 1) % 7;
+
+    int bestCol = pickBestMove(board, 6);
+    // if (isValidLocation(board, bestCol)) {
+    //     int row = getNextOpenRow(board, bestCol);
+    //     dropPiece(board, row, bestCol, turn);
+    // }
+
     // getting the next move
 
     json response_data = {
         {"player", "Yellow"},
-        {"column", yellow_move}
+        {"column", bestCol}
     };
 
     res.set_content(response_data.dump(), "application/json");
